@@ -1,0 +1,62 @@
+﻿@model Web_FIA35_BilderPlusPlus.Models.FilterSortBildList
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="width:80%;margin:auto;background-color:yellowgreen;padding:10px;border-radius:10px" />
+    <h1>Bilder++</h1>
+    <form action="/home/index" method="post">
+        <fieldset>
+            <legende>Sortierung</legende><br />
+            <table>
+                <tr>
+                    <td><input type="radio" asp-for="sortierTyp" name="rbSortierung" value="aufsteigend"/></td>
+                    <td><label for="rbSortName">Nach Name</label></td>
+                    <td><input type="radio" id="rbSortAufwaerts" name="rbSortRichtung" /></td>
+                    <td><label for="rbSortAufwaerts">Aufwärts</label></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="rbSortGroesse" name="rbSortierung" /></td>
+                    <td><label for="rbSortGroesse">Nach Groesse</label><br /></td>
+                    <td><input type="radio" id="rbSortAbwaerts" name="rbSortRichtung" /></td>
+                    <td><label for="rbSortAbwaerts">Abwärts</label></td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legende>Typ</legende><br />
+            <input type="checkbox" id="chbJpg" name="chbJpg" />
+            <label for="chbJpg">jpg</label>
+            <input type="checkbox" id="chbPng" name="chbPng" />
+            <label for="chbPng">png</label>
+            <input type="checkbox" id="chbGif" name="chbGif" />
+            <label for="chbGif">png</label>
+            <input type="checkbox" id="chbWebp" name="chbWebp" />
+            <label for="chbWebp">webp</label>
+        </fieldset>
+        <button>Filtern</button>
+        <button type="reset">Zurücksetzen</button>
+        <fieldset>
+            <legende>Bilderschau</legende><br />
+            <div class="Container">
+                @foreach (var bild in Model.listDateiInfos)
+                {
+                    <img src="/Bilder/@bild.Name" title="@bild.Length" alt="@bild.Name" />
+                }
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+</html>
