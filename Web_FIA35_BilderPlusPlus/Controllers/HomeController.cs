@@ -24,12 +24,6 @@ namespace Web_FIA35_BilderPlusPlus.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
-        }
-
-            [HttpPost]
-        public IActionResult Index(FilterSortBildList filterSortBildList)
-        {
             // Umgebungsinformationen zur Pfadermittlung der Bilder nutzen
             string wwwPath = this.Environment.WebRootPath;
             string contentPath = this.Environment.ContentRootPath;
@@ -39,9 +33,33 @@ namespace Web_FIA35_BilderPlusPlus.Controllers
             List<FileInfo> DateiListe = new List<FileInfo>(fi);
 
             // Model mit Liste der Dateiinfos
-            FilterSortBildList Infos = new FilterSortBildList { listDateiInfos = DateiListe };
+            FilterSortBildList infos = new FilterSortBildList { listDateiInfos = DateiListe };
 
-            return View(Infos);
+            return View(infos);
+        }
+
+        [HttpPost]
+        public IActionResult Index(FilterSortBildList filterSortBildList)
+        {
+
+
+
+
+            // Umgebungsinformationen zur Pfadermittlung der Bilder nutzen
+            string wwwPath = this.Environment.WebRootPath;
+            string contentPath = this.Environment.ContentRootPath;
+
+            DirectoryInfo di = new DirectoryInfo(wwwPath + "\\Bilder");
+            FileInfo[] fi = di.GetFiles("*.*");
+            List<FileInfo> DateiListe = new List<FileInfo>(fi);
+
+            // Model mit Liste der Dateiinfos
+            FilterSortBildList infos = new FilterSortBildList { listDateiInfos = DateiListe };
+
+
+
+
+            return View(infos);
         }
     }
 }
