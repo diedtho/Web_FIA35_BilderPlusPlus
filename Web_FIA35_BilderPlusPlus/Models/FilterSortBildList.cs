@@ -47,12 +47,12 @@ namespace Web_FIA35_BilderPlusPlus.Models
             if (filterGif) { listDateiInfos.RemoveAll(item => item.Name.Contains(".gif")); }
 
             if (sortierRichtung == "aufsteigend") {
-                if (sortierTyp == "nach Name") { listDateiInfos = listDateiInfos.OrderBy(o => o.Name).ToList(); }
-                if (sortierTyp == "nach Größe") { listDateiInfos = listDateiInfos.OrderBy(o => o.Length).ToList(); }
+                if (sortierTyp == "Name") { listDateiInfos = listDateiInfos.OrderBy(o => o.Name).ToList(); }
+                if (sortierTyp == "Größe") { listDateiInfos = listDateiInfos.OrderBy(o => o.Length).ToList(); }
             }
             if (sortierRichtung == "absteigend") {
-                if (sortierTyp == "nach Name") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Name).ToList(); }
-                if (sortierTyp == "nach Größe") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Length).ToList(); }
+                if (sortierTyp == "Name") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Name).ToList(); }
+                if (sortierTyp == "Größe") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Length).ToList(); }
             }
         }
     }

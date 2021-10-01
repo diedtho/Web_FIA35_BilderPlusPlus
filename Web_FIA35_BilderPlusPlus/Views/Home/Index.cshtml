@@ -11,29 +11,31 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="/CSS/style.css" rel="stylesheet" />
+    
 </head>
 <body>
-    <div style="width:80%;margin:auto;background-color:yellowgreen;padding:10px;border-radius:10px" />
+    <div class="background-color-primary-2" style="width:80%;margin:auto;padding:10px;border-radius:10px" />
     <h1>Bilder++</h1>
-    <form action="/home/index" method="post">
-        <fieldset>
+    <form class="background-color-primary-1" action="/home/index" method="post">
+        <fieldset class="background-color-primary-4">
             <legende>Sortierung</legende><br />
             <table>
                 <tr>
-                    <td><input type="radio" asp-for="sortierTyp" value="nach Name" /></td>
+                    <td><input type="radio" asp-for="sortierTyp" value="Name" /></td>
                     <td><label asp-for="sortierTyp">Nach Name</label></td>
                     <td><input type="radio" asp-for="sortierRichtung" value="aufsteigend" /></td>
                     <td><label asp-for="sortierRichtung">Aufsteigend</label></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" asp-for="sortierTyp" value="nach Größe" /></td>
+                    <td><input type="radio" asp-for="sortierTyp" value="Größe" /></td>
                     <td><label asp-for="sortierTyp">Nach Groesse</label><br /></td>
                     <td><input type="radio" asp-for="sortierRichtung" value="absteigend" /></td>
                     <td><label asp-for="sortierRichtung">Absteigend</label></td>
                 </tr>
             </table>
         </fieldset>
-        <fieldset>
+        <fieldset class="background-color-primary-0">
             <legende>Typ</legende><br />
             <input type="checkbox" asp-for="filterJpg" value="true" />
             <label asp-for="filterJpg">jpg</label>
@@ -50,12 +52,12 @@
         </fieldset>
         <button>Filtern</button>
         <button type="reset">Zurücksetzen</button>
-        <fieldset>
+        <fieldset class="background-color-primary-3">
             <legende>Bilderschau</legende><br />
             <div class="Container">
                 @foreach (var bild in Model.listDateiInfos)
                 {
-                    <img src="/Bilder/@bild.Name" title="Name:&nbsp @bild.Name&#10;Größe:&nbsp @bild.Length" alt="@bild.Name" width="222" height="222"/>
+                    <img src="/Bilder/@bild.Name" title="Name:&nbsp @bild.Name&#10;Größe:&nbsp @bild.Length" alt="@bild.Name" width="222" height="222" />
                 }
             </div>
 

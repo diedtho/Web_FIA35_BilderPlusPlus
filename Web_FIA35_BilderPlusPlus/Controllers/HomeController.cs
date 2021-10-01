@@ -33,7 +33,8 @@ namespace Web_FIA35_BilderPlusPlus.Controllers
             List<FileInfo> DateiListe = new List<FileInfo>(fi);
 
             // Model mit Liste der Dateiinfos
-            FilterSortBildList filterSortBildList = new FilterSortBildList { listDateiInfos = DateiListe };
+            FilterSortBildList filterSortBildList = new FilterSortBildList { listDateiInfos = DateiListe, sortierTyp = "Name", sortierRichtung = "aufsteigend" };
+            
 
             return View(filterSortBildList);
         }
