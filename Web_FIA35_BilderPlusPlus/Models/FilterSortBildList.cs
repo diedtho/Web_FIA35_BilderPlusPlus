@@ -34,14 +34,18 @@ namespace Web_FIA35_BilderPlusPlus.Models
         [Display(Name = "Jfif")]
         public bool filterJfif { get; set; }
 
+        [Display(Name = "Gif")]
+        public bool filterGif { get; set; }
+
         public void filterBildListe()
         {
             if (filterJpg) { listDateiInfos.RemoveAll(item => item.Name.Contains(".jpg")); }
             if (filterPng) { listDateiInfos.RemoveAll(item => item.Name.Contains(".png")); }
-            if (filterBmp) { listDateiInfos.RemoveAll(item => item.Name.Contains(".bpm")); }
+            if (filterBmp) { listDateiInfos.RemoveAll(item => item.Name.Contains(".bmp")); }
             if (filterWebp) { listDateiInfos.RemoveAll(item => item.Name.Contains(".webp")); }
             if (filterJfif) { listDateiInfos.RemoveAll(item => item.Name.Contains(".jfif")); }
-            
+            if (filterGif) { listDateiInfos.RemoveAll(item => item.Name.Contains(".gif")); }
+
             if (sortierRichtung == "aufsteigend") {
                 if (sortierTyp == "nach Name") { listDateiInfos = listDateiInfos.OrderBy(o => o.Name).ToList(); }
                 if (sortierTyp == "nach Größe") { listDateiInfos = listDateiInfos.OrderBy(o => o.Length).ToList(); }

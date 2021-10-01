@@ -45,6 +45,8 @@
             <label asp-for="filterWebp">webp</label>
             <input type="checkbox" asp-for="filterJfif" value="true" />
             <label asp-for="filterWebp">jfif</label>
+            <input type="checkbox" asp-for="filterGif" value="true" />
+            <label asp-for="filterGif">gif</label>
         </fieldset>
         <button>Filtern</button>
         <button type="reset">Zurücksetzen</button>
@@ -53,7 +55,7 @@
             <div class="Container">
                 @foreach (var bild in Model.listDateiInfos)
                 {
-                    <img src="/Bilder/@bild.Name" title="@bild.Name&#10;@bild.Length" alt="@bild.Name" width="222" height="222"/>
+                    <img src="/Bilder/@bild.Name" title="Name:&nbsp @bild.Name&#10;Größe:&nbsp @bild.Length" alt="@bild.Name" width="222" height="222"/>
                 }
             </div>
 
