@@ -30,10 +30,15 @@ namespace Web_FIA35_BilderPlusPlus.Models
             if (filterBmp) { listDateiInfos.RemoveAll(item => item.Name.Contains(".bpm")); }
             if (filterWebp) { listDateiInfos.RemoveAll(item => item.Name.Contains(".webp")); }
             if (filterJfif) { listDateiInfos.RemoveAll(item => item.Name.Contains(".jfif")); }
-            //if (sortierTyp == "nach Name") { listDateiInfos.Sort(); }
-            //if (sortierTyp == "nach Größe") { listDateiInfos.Sort(); }
-            //if (sortierRichtung == "aufsteigend") { listDateiInfos.Sort(); }
-            //if (sortierRichtung == "absteigend") { listDateiInfos.Sort(); }
+            
+            if (sortierRichtung == "aufsteigend") {
+                if (sortierTyp == "nach Name") { listDateiInfos = listDateiInfos.OrderBy(o => o.Name).ToList(); }
+                if (sortierTyp == "nach Größe") { listDateiInfos = listDateiInfos.OrderBy(o => o.Length).ToList(); }
+            }
+            if (sortierRichtung == "absteigend") {
+                if (sortierTyp == "nach Name") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Name).ToList(); }
+                if (sortierTyp == "nach Größe") { listDateiInfos = listDateiInfos.OrderByDescending(o => o.Length).ToList(); }
+            }
         }
     }
 }
