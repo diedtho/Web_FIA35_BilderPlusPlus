@@ -33,33 +33,27 @@ namespace Web_FIA35_BilderPlusPlus.Controllers
             List<FileInfo> DateiListe = new List<FileInfo>(fi);
 
             // Model mit Liste der Dateiinfos
-            FilterSortBildList infos = new FilterSortBildList { listDateiInfos = DateiListe };
+            FilterSortBildList filterSortBildList = new FilterSortBildList { listDateiInfos = DateiListe };
 
-            return View(infos);
+            return View(filterSortBildList);
         }
 
         [HttpPost]
         public IActionResult Index(FilterSortBildList filterSortBildList)
         {
-
-
-
-
             // Umgebungsinformationen zur Pfadermittlung der Bilder nutzen
             string wwwPath = this.Environment.WebRootPath;
             string contentPath = this.Environment.ContentRootPath;
 
             DirectoryInfo di = new DirectoryInfo(wwwPath + "\\Bilder");
             FileInfo[] fi = di.GetFiles("*.*");
-            List<FileInfo> DateiListe = new List<FileInfo>(fi);
+            List<FileInfo> DateiListe = new List<FileInfo>(fi);            
 
             // Model mit Liste der Dateiinfos
-            FilterSortBildList infos = new FilterSortBildList { listDateiInfos = DateiListe };
+            filterSortBildList.listDateiInfos = DateiListe;
+            filterSortBildList.filterBildListe();
 
-
-
-
-            return View(infos);
+            return View(filterSortBildList);
         }
     }
 }

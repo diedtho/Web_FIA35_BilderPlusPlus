@@ -1,5 +1,4 @@
 ﻿@model Web_FIA35_BilderPlusPlus.Models.FilterSortBildList
-
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -21,16 +20,16 @@
             <legende>Sortierung</legende><br />
             <table>
                 <tr>
-                    <td><input type="radio" asp-for="sortierTyp" value="nach Name"/></td>
-                    <td><label asp-for="sortierTyp" >Nach Name</label></td>
-                    <td><input type="radio" asp-for="sortierRichtung" value="aufsteigend"/></td>
+                    <td><input type="radio" asp-for="sortierTyp" value="nach Name" /></td>
+                    <td><label asp-for="sortierTyp">Nach Name</label></td>
+                    <td><input type="radio" asp-for="sortierRichtung" value="aufsteigend" /></td>
                     <td><label asp-for="sortierRichtung">Aufsteigend</label></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" asp-for="sortierTyp" value="nach Größe"/></td>
+                    <td><input type="radio" asp-for="sortierTyp" value="nach Größe" /></td>
                     <td><label asp-for="sortierTyp">Nach Groesse</label><br /></td>
-                    <td><input type="radio" asp-for="sortierRichtung" value="absteigend"/></td>
-                    <td><label asp-for="sortierRichtung" >Absteigend</label></td>
+                    <td><input type="radio" asp-for="sortierRichtung" value="absteigend" /></td>
+                    <td><label asp-for="sortierRichtung">Absteigend</label></td>
                 </tr>
             </table>
         </fieldset>
@@ -38,12 +37,14 @@
             <legende>Typ</legende><br />
             <input type="checkbox" asp-for="filterJpg" value="true" />
             <label asp-for="filterJpg">jpg</label>
-            <input type="checkbox" asp-for="filterPng" value="true"/>
+            <input type="checkbox" asp-for="filterPng" value="true" />
             <label asp-for="filterPng">png</label>
-            <input type="checkbox" asp-for="filterBmp" value="true"/>
+            <input type="checkbox" asp-for="filterBmp" value="true" />
             <label asp-for="filterBmp">bmp</label>
-            <input type="checkbox" asp-for="filterWebp" value="true"/>
+            <input type="checkbox" asp-for="filterWebp" value="true" />
             <label asp-for="filterWebp">webp</label>
+            <input type="checkbox" asp-for="filterJfif" value="true" />
+            <label asp-for="filterWebp">jfif</label>
         </fieldset>
         <button>Filtern</button>
         <button type="reset">Zurücksetzen</button>
@@ -52,11 +53,7 @@
             <div class="Container">
                 @foreach (var bild in Model.listDateiInfos)
                 {
-                    if (!Model.filterJpg && bild.Name.Contains(".jpg")) { return; }
-                    if (!Model.filterPng && bild.Name.Contains(".png")) { return; }
-                    if (!Model.filterBmp && bild.Name.Contains(".bmp")) { return; }
-                    if (!Model.filterWebp && bild.Name.Contains(".webp")) { return; }
-                    <img src="/Bilder/@bild.Name" title="@bild.Length" alt="@bild.Name" />
+                    <img src="/Bilder/@bild.Name" title="@bild.Name&#10;@bild.Length" alt="@bild.Name" />
                 }
             </div>
 
