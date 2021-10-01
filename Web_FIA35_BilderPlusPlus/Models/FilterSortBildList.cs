@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,10 +18,20 @@ namespace Web_FIA35_BilderPlusPlus.Models
         public string sortierRichtung { get; set; }
 
         // Für die Ergebnisse der Radiobuttons
+        
+        [Display(Name = "Jpg")]
         public bool filterJpg { get; set; }
+
+        [Display(Name = "Png")]
         public bool filterPng { get; set; }
+
+        [Display(Name = "Bmp")]
         public bool filterBmp { get; set; }
+
+        [Display(Name = "Webp")]
         public bool filterWebp { get; set; }
+
+        [Display(Name = "Jfif")]
         public bool filterJfif { get; set; }
 
         public void filterBildListe()
